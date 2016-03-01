@@ -1080,8 +1080,8 @@ sub parse_table {
 
 		# |aa|bb|cc  → |aa|bb|cc|
 		# |aa|bb|cc| → |aa|bb|cc|
-		$line =~ s/\|?\s*$/|/;
-		my @l = split(/\s*\|\s*/, $line);
+		$line =~ s/\|$//;
+		my @l = split(/\s*\|\s*/, $line, -1);
 		shift(@l);	# 最初を読み捨て
 
 		my @cols;
